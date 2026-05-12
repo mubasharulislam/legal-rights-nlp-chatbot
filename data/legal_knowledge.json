@@ -1,0 +1,319 @@
+{
+  "disclaimer": "This is general legal information for Pakistan, not a substitute for advice from a lawyer, ombudsperson office, police, or a trusted local support service.",
+  "suggested_prompts": [
+    "What is workplace harassment?",
+    "How do I file a complaint?",
+    "What evidence should I keep?",
+    "Which law protects women at work?",
+    "Can an intern or freelancer complain?",
+    "What should I write in my complaint?",
+    "What if my company ignores me?",
+    "What if I am being threatened?",
+    "Can WhatsApp messages be evidence?",
+    "What punishment can happen?",
+    "Where can I get help?"
+  ],
+  "topics": [
+    {
+      "id": "definition",
+      "title": "What workplace harassment means",
+      "keywords": ["harassment", "harass", "abuse", "unwanted", "sexual", "hostile", "intimidating", "workplace"],
+      "examples": ["what is harassment", "define workplace harassment", "what counts as harassment"],
+      "answer": "Workplace harassment can include unwelcome sexual advances, requests for sexual favors, sexually colored remarks, verbal or written messages, physical conduct, or conduct that creates an intimidating, hostile, or offensive work environment.",
+      "steps": [
+        "Write down what happened, including date, time, place, people involved, and witnesses.",
+        "Save messages, emails, call logs, screenshots, or documents safely.",
+        "If you feel unsafe, prioritize immediate safety and contact a trusted person or emergency service."
+      ],
+      "sources": [
+        {"name": "Protection against Harassment of Women at the Workplace Act, 2010", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "types",
+      "title": "Types of harassment",
+      "keywords": ["types", "kind", "forms", "quid", "favor", "favours", "remarks", "touching", "messages", "hostile", "condition", "promotion", "job"],
+      "examples": ["what are types of harassment", "is touching harassment", "pressure for promotion"],
+      "answer": "Common forms include unwanted sexual comments or jokes, pressure for dates or sexual favors, repeated messages or calls, inappropriate touching, threats linked to a job benefit, and behavior that makes the workplace hostile or offensive.",
+      "steps": [
+        "Notice whether the conduct is repeated, threatening, sexual in nature, or tied to work benefits.",
+        "Keep a record even if you are unsure whether the behavior is legally enough.",
+        "Ask for help early if the conduct is affecting your safety, dignity, or work."
+      ],
+      "sources": [
+        {"name": "ILO NATLEX summary", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "who_is_protected",
+      "title": "Who can complain",
+      "keywords": ["who", "protected", "person", "employee", "woman", "man", "minor", "student", "intern", "intern complain", "trainee", "domestic", "freelance", "freelancer complain", "gig", "gig worker complain", "contract", "contract worker complain", "part time", "former"],
+      "examples": ["can an intern complain", "can a freelancer complain", "does this protect students"],
+      "answer": "The 2022 amendment broadened important definitions. The law is not limited only to one narrow type of worker. Depending on the facts, protection may cover regular, contractual, temporary, part-time, freelance, gig, intern, trainee, student, domestic worker, and former-employee situations.",
+      "steps": [
+        "Write down your exact relationship with the organization or accused person.",
+        "Do not assume you are excluded just because you are not a permanent employee.",
+        "For a minor complainant, a parent or guardian may need to be involved."
+      ],
+      "sources": [
+        {"name": "Protection against Harassment of Women at the Workplace Amendment Act, 2022", "url": "https://pc.gov.pk/uploads/act/Women_H_Work_Act_2022_Amendment.pdf"}
+      ]
+    },
+    {
+      "id": "workplace_scope",
+      "title": "Where the law may apply",
+      "keywords": ["where", "workplace", "office", "university", "school", "factory", "field", "online", "public", "transport", "event", "training", "meeting", "remote", "home"],
+      "examples": ["does online harassment count", "harassment during training", "outside office but related to work"],
+      "answer": "A workplace can be broader than a desk or office room. It may include places connected to work, training, meetings, work travel, field visits, employer events, and some online or remote-work interactions when they are connected to work.",
+      "steps": [
+        "Explain how the place or communication was connected to work, study, training, or employment.",
+        "Save online messages with dates, usernames, phone numbers, and platform details.",
+        "Mention whether the accused person had authority, influence, or work contact with you."
+      ],
+      "sources": [
+        {"name": "2022 amendment context", "url": "https://pc.gov.pk/uploads/act/Women_H_Work_Act_2022_Amendment.pdf"}
+      ]
+    },
+    {
+      "id": "law",
+      "title": "Relevant law in Pakistan",
+      "keywords": ["law", "act", "rules", "rights", "legal", "protection", "constitution", "amendment", "2010", "2022"],
+      "examples": ["which law protects women", "what is the 2010 act", "tell me the legal protection"],
+      "answer": "Pakistan's main workplace harassment law is the Protection against Harassment of Women at the Workplace Act, 2010. The law created workplace inquiry committees and ombudsperson complaint routes. Its scope has also been updated through later legal developments, including the 2022 amendment.",
+      "steps": [
+        "Check whether your workplace has displayed a code of conduct and formed an inquiry committee.",
+        "You can ask HR, administration, or management about the committee members.",
+        "For formal advice, contact the relevant provincial or federal ombudsperson office."
+      ],
+      "sources": [
+        {"name": "Punjab Commission on the Status of Women", "url": "https://pcsw.punjab.gov.pk/protection_against_harrassment"},
+        {"name": "ILO NATLEX", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "employer_responsibility",
+      "title": "Employer responsibilities",
+      "keywords": ["employer", "company", "organization", "organisation", "office", "hr", "management", "responsibility", "duty", "ignore", "ignoring", "company ignores", "company ignoring", "code", "conduct", "policy", "display"],
+      "examples": ["my company is ignoring me", "what should HR do", "does employer need a policy"],
+      "answer": "Employers are expected to take workplace harassment seriously. They should adopt and display a code of conduct, create an inquiry committee where required, receive complaints, and act through a fair process instead of ignoring or hiding the issue.",
+      "steps": [
+        "Ask HR or management for the inquiry committee names and complaint procedure.",
+        "Keep a copy of any written complaint, email, or receiving stamp.",
+        "Record if management refuses to receive the complaint or pressures you to stay silent."
+      ],
+      "sources": [
+        {"name": "Punjab Commission on the Status of Women", "url": "https://pcsw.punjab.gov.pk/protection_against_harrassment"}
+      ]
+    },
+    {
+      "id": "inquiry_committee",
+      "title": "Inquiry committee",
+      "keywords": ["inquiry", "committee", "members", "member", "female", "chair", "investigation", "hearing", "proceedings", "thirty", "30"],
+      "examples": ["what is inquiry committee", "who investigates complaint", "committee members"],
+      "answer": "A workplace inquiry committee is the internal body that receives and investigates complaints. It should follow a fair process, hear the parties, look at evidence, and make findings or recommendations to the competent authority.",
+      "steps": [
+        "Ask for the committee details before submitting sensitive evidence.",
+        "Prepare your timeline, documents, witness names, and the outcome you are requesting.",
+        "If the internal process is unsafe or inactive, consider the ombudsperson route."
+      ],
+      "sources": [
+        {"name": "Protection against Harassment of Women at the Workplace Act, 2010", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "complaint",
+      "title": "How to file a complaint",
+      "keywords": ["complaint", "complain", "report", "file", "submit", "application", "case", "ombudsperson", "committee"],
+      "examples": ["how do I file a complaint", "where to report harassment", "submit case"],
+      "answer": "A complaint can usually be made to your organization's inquiry committee or to the relevant ombudsperson. Keep the complaint clear: explain what happened, when it happened, who was involved, and what evidence or witnesses exist.",
+      "steps": [
+        "Prepare a written timeline of events.",
+        "Attach copies of messages, emails, screenshots, or witness names where available.",
+        "Submit the complaint to the inquiry committee or ombudsperson and keep a copy for yourself."
+      ],
+      "sources": [
+        {"name": "Punjab Commission on the Status of Women", "url": "https://pcsw.punjab.gov.pk/protection_against_harrassment"}
+      ]
+    },
+    {
+      "id": "complaint_draft",
+      "title": "What to write in a complaint",
+      "keywords": ["write", "draft", "format", "application", "letter", "statement", "subject", "template", "sample"],
+      "examples": ["complaint letter format", "what should I write", "sample application"],
+      "answer": "A useful complaint usually includes your name and contact details, the accused person's name and role, a dated timeline of incidents, available evidence, witness names, any previous reporting, and the action you are requesting.",
+      "steps": [
+        "Use clear dates and facts instead of only general statements.",
+        "Attach copies, not your only originals, where possible.",
+        "End by requesting a written receipt or acknowledgment of your complaint."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "ombudsperson",
+      "title": "Ombudsperson route",
+      "keywords": ["ombudsperson", "ombudsman", "ombudswoman", "federal", "provincial", "punjab", "sindh", "kp", "khyber", "balochistan", "islamabad"],
+      "examples": ["where is ombudsperson", "federal ombudsman", "provincial complaint office"],
+      "answer": "You may be able to approach the relevant federal or provincial ombudsperson instead of, or after, an internal workplace process. The correct office depends on your location, employer, and the applicable law.",
+      "steps": [
+        "Identify your province or whether the workplace falls under federal jurisdiction.",
+        "Prepare your written complaint and evidence bundle before contacting the office.",
+        "Ask the office about filing method, required documents, and any limitation period."
+      ],
+      "sources": [
+        {"name": "Punjab Commission on the Status of Women", "url": "https://pcsw.punjab.gov.pk/protection_against_harrassment"}
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence and documentation",
+      "keywords": ["evidence", "proof", "screenshot", "message", "message evidence", "email", "witness", "record", "document", "cctv", "call"],
+      "examples": ["what evidence should I keep", "are screenshots useful", "how to prove harassment"],
+      "answer": "Helpful evidence may include screenshots, emails, chat messages, call logs, documents, CCTV references, medical records if relevant, and names of witnesses. Even if evidence is incomplete, a careful written timeline can still help.",
+      "steps": [
+        "Store copies somewhere private and secure.",
+        "Avoid editing screenshots or messages in a way that could raise questions later.",
+        "Write notes soon after each incident while your memory is fresh."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "witnesses",
+      "title": "Witnesses",
+      "keywords": ["witness", "witnesses", "colleague", "coworker", "saw", "heard", "testify", "statement", "support"],
+      "examples": ["what if my colleague saw it", "witness statement", "no witness"],
+      "answer": "Witnesses can help if they saw the incident, heard the words used, noticed a pattern, received related messages, or saw the effect on your work. A witness does not need to know everything to be useful.",
+      "steps": [
+        "Write down witness names, roles, contact details, and what each person may know.",
+        "Avoid pressuring witnesses; simply ask whether they are willing to share what they observed.",
+        "Mention if anyone is afraid of retaliation."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "retaliation",
+      "title": "Retaliation or pressure",
+      "keywords": ["retaliation", "threatened after reporting", "threatened after complaint", "after reporting", "after complaint", "revenge", "threat", "pressure", "blackmail", "transfer", "fire", "fired", "dismissed", "salary", "promotion", "victimisation", "victimization"],
+      "examples": ["I am being threatened after reporting", "my boss fired me after complaint", "pressure to withdraw complaint"],
+      "answer": "Pressure, threats, forced resignation, unfair transfer, salary action, or punishment because you complained can be very serious. Keep a separate record of retaliation after the complaint as well as the original harassment.",
+      "steps": [
+        "Save every message, notice, email, or verbal threat related to the complaint.",
+        "Write down who pressured you, when, and what they said.",
+        "Ask the committee or ombudsperson about interim protection or urgent directions."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "confidentiality",
+      "title": "Privacy and confidentiality",
+      "keywords": ["privacy", "confidential", "confidentiality", "secret", "name", "reputation", "leak", "share", "identity"],
+      "examples": ["will my name be private", "privacy in complaint", "confidential case"],
+      "answer": "Harassment complaints often involve private and sensitive details. You can ask the committee, HR, or ombudsperson how your information will be protected and who will have access to the complaint and evidence.",
+      "steps": [
+        "Mark sensitive documents clearly when submitting them.",
+        "Ask for communication through a safe phone number or email address.",
+        "Keep your own copies in a private folder or trusted account."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "punishment",
+      "title": "Possible penalties",
+      "keywords": ["punishment", "penalty", "fine", "dismiss", "dismissal", "demotion", "warning", "suspend", "compensation"],
+      "examples": ["what punishment can happen", "can harasser be dismissed", "penalty for harassment"],
+      "answer": "Depending on the findings and seriousness of the case, penalties may include a warning, censure, withholding promotion or increment, compensation, demotion, removal from service, dismissal, or other action allowed by the applicable rules.",
+      "steps": [
+        "Ask for the final decision in writing.",
+        "Review any appeal or representation deadline carefully.",
+        "Consider legal help if the decision feels unfair or retaliation occurs."
+      ],
+      "sources": [
+        {"name": "ILO NATLEX summary", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "appeal",
+      "title": "Appeals and next steps after decision",
+      "keywords": ["appeal", "decision", "order", "finding", "recommendation", "challenge", "review", "representation", "deadline"],
+      "examples": ["can I appeal", "unfair decision", "challenge committee decision"],
+      "answer": "If a decision is made against you, or if you believe the outcome is unfair, there may be an appeal or representation route. Deadlines can matter, so read the written decision carefully and ask the relevant office about the exact process.",
+      "steps": [
+        "Get the decision or recommendation in writing.",
+        "Note the date you received it and any deadline mentioned.",
+        "Consider speaking with a lawyer or legal aid service before filing an appeal."
+      ],
+      "sources": [
+        {"name": "Protection against Harassment of Women at the Workplace Act, 2010", "url": "https://natlex.ilo.org/dyn/natlex2/r/natlex/fe/details?p3_isn=86175"}
+      ]
+    },
+    {
+      "id": "false_complaint_fear",
+      "title": "Fear of not being believed",
+      "keywords": ["believe", "false", "proof", "scared", "afraid", "blame", "shame", "embarrassed", "reputation"],
+      "examples": ["what if no one believes me", "I am scared to complain", "no proof"],
+      "answer": "Many people worry they will not be believed, especially when harassment happened privately. A complaint can still be organized carefully through a timeline, pattern of conduct, messages, witness context, and details about how the conduct affected work.",
+      "steps": [
+        "Write a private timeline before deciding what to submit formally.",
+        "Separate facts you personally saw or heard from things others told you.",
+        "Talk to a trusted person, counselor, lawyer, or support organization if you feel overwhelmed."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "cyber",
+      "title": "Online harassment connected to work",
+      "keywords": ["online", "facebook", "whatsapp", "whatsapp messages", "whatsapp evidence", "instagram", "email", "sms", "call", "cyber", "photo", "video", "account", "social", "media"],
+      "examples": ["can WhatsApp messages be evidence", "harassment on Facebook", "online blackmail by coworker"],
+      "answer": "Online messages, calls, emails, social-media contact, or image-based threats can matter if they are connected to work, study, training, employment, or power over you. Some online abuse may also require cybercrime or police guidance.",
+      "steps": [
+        "Take screenshots that show date, time, username, number, and full message context.",
+        "Do not delete the original messages if you can safely preserve them.",
+        "If private images or blackmail are involved, seek urgent help from a lawyer, trusted person, or relevant authority."
+      ],
+      "sources": [
+        {"name": "2022 amendment context", "url": "https://pc.gov.pk/uploads/act/Women_H_Work_Act_2022_Amendment.pdf"}
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Immediate safety and support",
+      "keywords": ["unsafe", "danger", "threat", "blackmail", "stalking", "violence", "emergency", "help", "where", "support"],
+      "examples": ["where can I get help", "I am in danger", "he is blackmailing me"],
+      "answer": "If you are in immediate danger, move to a safer place and contact local emergency services or someone you trust. For workplace support, you can approach the inquiry committee, HR, management, or the relevant ombudsperson office.",
+      "steps": [
+        "Tell a trusted person what is happening.",
+        "Avoid meeting the harasser alone if you feel unsafe.",
+        "Keep a record of threats, pressure, retaliation, or blackmail attempts."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    },
+    {
+      "id": "mental_health",
+      "title": "Stress and emotional support",
+      "keywords": ["stress", "anxiety", "depressed", "trauma", "panic", "sleep", "mental", "health", "counseling", "counselling"],
+      "examples": ["I feel anxious", "harassment affected my mental health", "I cannot sleep"],
+      "answer": "Harassment can affect sleep, confidence, health, and work. It is reasonable to seek emotional support while also handling the legal or workplace process.",
+      "steps": [
+        "Speak with a trusted person, counselor, doctor, or support service.",
+        "Keep medical or counseling records if the situation affects your health.",
+        "Take breaks from collecting evidence when you feel overwhelmed, but keep key records safe."
+      ],
+      "sources": [
+        {"name": "Project knowledge base", "url": "data/legal_knowledge.json"}
+      ]
+    }
+  ]
+}

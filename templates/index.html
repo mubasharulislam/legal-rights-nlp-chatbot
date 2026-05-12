@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Rights Chatbot</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-soft: #f9fafb;
+      --ink: #172033;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --line-strong: #cbd5e1;
+      --accent: #0f766e;
+      --accent-dark: #0b5f59;
+      --accent-soft: #e6f5f2;
+      --assistant: #ffffff;
+      --user: #0f766e;
+      --warn-bg: #fff7ed;
+      --warn-ink: #8a4b0f;
+      --danger: #b42318;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f6f7f9 46%, #eef2f6 100%);
+      pointer-events: none;
+    }
+
+    .app-shell {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 100vh;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 20px;
+      padding: 24px 0;
+    }
+
+    .sidebar,
+    .chat-panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .sidebar {
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-self: start;
+      position: sticky;
+      top: 24px;
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: 15px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-title {
+      margin-bottom: 10px;
+      color: #334155;
+    }
+
+    .subtitle,
+    .fine-print {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .scope-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .scope-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .scope-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      margin-top: 6px;
+      flex: 0 0 auto;
+      background: var(--accent);
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .quick-button,
+    .icon-button,
+    .send-button,
+    .clear-button {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .quick-button {
+      padding: 10px 12px;
+      text-align: left;
+      line-height: 1.3;
+      font-size: 14px;
+    }
+
+    .quick-button:hover,
+    .icon-button:hover,
+    .clear-button:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .quick-button:focus-visible,
+    .icon-button:focus-visible,
+    .send-button:focus-visible,
+    .clear-button:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(15, 118, 110, 0.24);
+      outline-offset: 2px;
+    }
+
+    .quick-button:active,
+    .icon-button:active,
+    .send-button:active,
+    .clear-button:active {
+      transform: translateY(1px);
+    }
+
+    .notice {
+      border: 1px solid #fed7aa;
+      background: var(--warn-bg);
+      color: var(--warn-ink);
+      padding: 12px;
+      border-radius: 14px;
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .chat-panel {
+      border-radius: var(--radius);
+      min-height: calc(100vh - 48px);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #16a34a;
+    }
+
+    .chatbox {
+      padding: 22px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background:
+        linear-gradient(180deg, rgba(249, 250, 251, 0.64), rgba(255, 255, 255, 0.88));
+    }
+
+    .message-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    .message-row.bot::before,
+    .message-row.user::after {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .message-row.bot::before {
+      content: "LR";
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border: 1px solid #b7e2db;
+    }
+
+    .message-row.user::after {
+      content: "You";
+      color: #ffffff;
+      background: #334155;
+    }
+
+    .bubble {
+      width: fit-content;
+      max-width: min(720px, 82%);
+      padding: 13px 15px;
+      border-radius: 18px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-size: 15px;
+    }
+
+    .message-row.bot .bubble {
+      background: var(--assistant);
+      border: 1px solid var(--line);
+      border-bottom-left-radius: 6px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .message-row.user .bubble {
+      background: var(--user);
+      color: white;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0 10px 26px rgba(15, 118, 110, 0.22);
+    }
+
+    .typing {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .composer {
+      border-top: 1px solid var(--line);
+      padding: 16px 18px 18px;
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .composer-form {
+      display: grid;
+      grid-template-columns: 46px 1fr 100px;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .icon-button {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .icon-button.listening {
+      color: white;
+      background: var(--danger);
+      border-color: var(--danger);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 46px;
+      max-height: 140px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 13px;
+      font: inherit;
+      line-height: 1.35;
+      outline: none;
+      background: white;
+      color: var(--ink);
+    }
+
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+    }
+
+    .send-button {
+      min-height: 46px;
+      padding: 0 16px;
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    .send-button:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .send-button:disabled {
+      cursor: wait;
+      opacity: 0.72;
+    }
+
+    .composer-footer {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .clear-button {
+      padding: 7px 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+        padding: 16px 0;
+      }
+
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
+
+      .chat-panel {
+        min-height: 680px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .app-shell {
+        width: min(100% - 16px, 1120px);
+        padding: 8px 0;
+      }
+
+      .sidebar {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .chat-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .chatbox {
+        padding: 16px;
+      }
+
+      .bubble {
+        max-width: calc(100% - 40px);
+        font-size: 14px;
+      }
+
+      .composer-form {
+        grid-template-columns: 44px 1fr;
+      }
+
+      .send-button {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">LR</div>
+        <div>
+          <h1>Legal Rights Chatbot</h1>
+          <p class="subtitle">Workplace harassment information for Pakistan</p>
+        </div>
+      </div>
+
+      <section>
+        <h2 class="section-title">Quick Topics</h2>
+        <div class="quick-list" id="quickList">
+          {% for prompt in suggested_prompts %}
+          <button class="quick-button" type="button" data-prompt="{{ prompt }}">{{ prompt }}</button>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Coverage</h2>
+        <ul class="scope-list">
+          <li>Complaint routes and workplace procedures</li>
+          <li>Evidence, witnesses, privacy, and retaliation</li>
+          <li>General legal information for Pakistan</li>
+        </ul>
+      </section>
+
+      <div class="notice" role="note">
+        If there is immediate danger, contact local emergency services or someone you trust before using this chatbot.
+      </div>
+
+      <p class="fine-print">
+        This app gives general information only. It does not replace advice from a lawyer, ombudsperson office, police, or local support service.
+      </p>
+    </aside>
+
+    <section class="chat-panel" aria-label="Chatbot">
+      <header class="chat-header">
+        <div>
+          <h2>Ask a question</h2>
+          <p class="subtitle">Try asking about complaints, evidence, penalties, safety, or the 2010 workplace harassment law.</p>
+        </div>
+        <div class="status" aria-label="Chatbot status">
+          <span class="status-dot"></span>
+          Ready
+        </div>
+      </header>
+
+      <div class="chatbox" id="chatbox" aria-live="polite"></div>
+
+      <div class="composer">
+        <form class="composer-form" id="chatForm">
+          <button class="icon-button" id="voiceButton" type="button" title="Voice input" aria-label="Voice input">Mic</button>
+          <textarea id="userInput" rows="1" placeholder="Type your question here" aria-label="Message"></textarea>
+          <button class="send-button" id="sendButton" type="submit">Send</button>
+        </form>
+        <div class="composer-footer">
+          <p class="fine-print" id="voiceStatus">Chat history is saved in this browser.</p>
+          <button class="clear-button" id="clearButton" type="button">Clear history</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const chatbox = document.getElementById("chatbox");
+    const chatForm = document.getElementById("chatForm");
+    const userInput = document.getElementById("userInput");
+    const sendButton = document.getElementById("sendButton");
+    const clearButton = document.getElementById("clearButton");
+    const quickList = document.getElementById("quickList");
+    const voiceButton = document.getElementById("voiceButton");
+    const voiceStatus = document.getElementById("voiceStatus");
+    const storageKey = "legalRightsChatHistory";
+
+    let history = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    let recognition = null;
+
+    function saveHistory() {
+      localStorage.setItem(storageKey, JSON.stringify(history.slice(-60)));
+    }
+
+    function addMessage(role, text, save = true) {
+      const row = document.createElement("div");
+      row.className = `message-row ${role}`;
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+      bubble.textContent = text;
+
+      row.appendChild(bubble);
+      chatbox.appendChild(row);
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      if (save) {
+        history.push({ role, text });
+        saveHistory();
+      }
+
+      return row;
+    }
+
+    function renderHistory() {
+      chatbox.innerHTML = "";
+
+      if (!history.length) {
+        addMessage(
+          "bot",
+          "Hello. I can help with general information about workplace harassment law, complaint steps, evidence, penalties, and safety options in Pakistan.",
+          false
+        );
+        return;
+      }
+
+      history.forEach((item) => addMessage(item.role, item.text, false));
+    }
+
+    async function sendMessage(message) {
+      const cleanMessage = message.trim();
+      if (!cleanMessage) return;
+
+      addMessage("user", cleanMessage);
+      userInput.value = "";
+      sendButton.disabled = true;
+
+      const typingRow = addMessage("bot", "Thinking...", false);
+      typingRow.querySelector(".bubble").classList.add("typing");
+
+      try {
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: cleanMessage })
+        });
+
+        const data = await response.json();
+        typingRow.remove();
+        addMessage("bot", data.reply || "Sorry, I could not prepare a response.");
+      } catch (error) {
+        typingRow.remove();
+        addMessage("bot", "I could not reach the server. Please check that the Flask app is running.");
+      } finally {
+        sendButton.disabled = false;
+        userInput.focus();
+      }
+    }
+
+    chatForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      sendMessage(userInput.value);
+    });
+
+    userInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage(userInput.value);
+      }
+    });
+
+    quickList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-prompt]");
+      if (!button) return;
+      sendMessage(button.dataset.prompt);
+    });
+
+    clearButton.addEventListener("click", () => {
+      history = [];
+      saveHistory();
+      renderHistory();
+    });
+
+    function setupVoiceInput() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        voiceButton.disabled = true;
+        voiceButton.title = "Voice input is not supported in this browser";
+        voiceStatus.textContent = "Voice input is not supported in this browser.";
+        return;
+      }
+
+      recognition = new SpeechRecognition();
+      recognition.lang = "en-PK";
+      recognition.interimResults = false;
+
+      recognition.addEventListener("start", () => {
+        voiceButton.classList.add("listening");
+        voiceStatus.textContent = "Listening...";
+      });
+
+      recognition.addEventListener("end", () => {
+        voiceButton.classList.remove("listening");
+        voiceStatus.textContent = "Chat history is saved in this browser.";
+      });
+
+      recognition.addEventListener("result", (event) => {
+        const transcript = event.results[0][0].transcript;
+        userInput.value = transcript;
+        sendMessage(transcript);
+      });
+
+      voiceButton.addEventListener("click", () => {
+        recognition.start();
+      });
+    }
+
+    renderHistory();
+    setupVoiceInput();
+  </script>
+</body>
+</html>
