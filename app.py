@@ -19,11 +19,16 @@ def load_env_file(path=".env"):
     with open(path, "r", encoding="utf-8") as env_file:
         for line in env_file:
             line = line.strip()
+
             if not line or line.startswith("#") or "=" not in line:
                 continue
 
             key, value = line.split("=", 1)
-            os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+            os.environ.setdefault(
+                key.strip(),
+                value.strip().strip('"').strip("'")
+            )
 
 
 load_env_file()
@@ -40,20 +45,28 @@ def openai_response(message):
         return None
 
     context = knowledge_base.context_for_prompt(message)
+
     payload = {
         "model": model,
         "messages": [
             {
                 "role": "system",
                 "content": (
-                    "You are a careful assistant for a Pakistan workplace harassment legal "
-                    "information chatbot. Use the provided knowledge base context when relevant. "
-                    "Give concise, practical, trauma-informed information. Do not claim to be a "
-                    "lawyer. Encourage urgent safety steps for danger. End with a short "
-                    "legal-information disclaimer."
+                    "You are a careful assistant for a Pakistan workplace "
+                    "harassment legal information chatbot. Use the provided "
+                    "knowledge base context when relevant. Give concise, "
+                    "practical, trauma-informed information. Do not claim "
+                    "to be a lawyer. Encourage urgent safety steps for danger. "
+                    "End with a short legal-information disclaimer."
                 ),
             },
-            {"role": "user", "content": f"Knowledge base context:\n{context}\n\nQuestion: {message}"},
+            {
+                "role": "user",
+                "content": (
+                    f"Knowledge base context:\n{context}\n\n"
+                    f"Question: {message}"
+                ),
+            },
         ],
         "temperature": 0.3,
     }
@@ -71,30 +84,55 @@ def openai_response(message):
     try:
         with request.urlopen(api_request, timeout=20) as response:
             data = json.loads(response.read().decode("utf-8"))
-            return data["choices"][0]["message"]["content"].strip()
-    except (error.URLError, error.HTTPError, KeyError, IndexError, json.JSONDecodeError):
+
+            return {
+                "reply": data["choices"][0]["message"]["content"].strip(),
+                "matched_topic": "OpenAI Assisted Response",
+                "similarity_score": "AI Generated",
+            }
+
+    except (
+        error.URLError,
+        error.HTTPError,
+        KeyError,
+        IndexError,
+        json.JSONDecodeError,
+    ):
         return None
 
 
 def get_response(user_input):
     user_input = user_input or ""
+
     ai_reply = openai_response(user_input)
+
     if ai_reply:
         return ai_reply
 
-    return knowledge_base.answer(user_input)
+    response, matched_topic, score = knowledge_base.answer(user_input)
+
+    return {
+        "reply": response,
+        "matched_topic": matched_topic,
+        "similarity_score": score,
+    }
 
 
 @app.route("/")
 def home():
-    return render_template("index.html", suggested_prompts=knowledge_base.suggested_prompts)
+    return render_template(
+        "index.html",
+        suggested_prompts=knowledge_base.suggested_prompts,
+    )
 
 
 @app.route("/chat", methods=["POST"])
 def chat():
     data = flask_request.get_json(silent=True) or {}
+
     user_input = data.get("message", "")
-    return jsonify({"reply": get_response(user_input)})
+
+    return jsonify(get_response(user_input))
 
 
 @app.route("/health")

@@ -89,6 +89,15 @@
       align-items: center;
     }
 
+    .retrieval-meta {
+  margin-top: 10px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.5;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+}
+
     .brand-mark {
       width: 48px;
       height: 48px;
@@ -557,7 +566,7 @@
 
       const bubble = document.createElement("div");
       bubble.className = "bubble";
-      bubble.textContent = text;
+      bubble.innerHTML = text;
 
       row.appendChild(bubble);
       chatbox.appendChild(row);
@@ -603,11 +612,24 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: cleanMessage })
         });
-
         const data = await response.json();
+
         typingRow.remove();
-        addMessage("bot", data.reply || "Sorry, I could not prepare a response.");
-      } catch (error) {
+
+        const botReply = `
+${data.reply}
+<div class="retrieval-meta">
+Matched Topic: ${data.matched_topic}
+Similarity Score: ${data.similarity_score}
+</div>
+`;
+
+        addMessage(
+          "bot",
+          botReply || "Sorry, I could not prepare a response."
+        );
+        } catch (error) {
+        console.error(error);
         typingRow.remove();
         addMessage("bot", "I could not reach the server. Please check that the Flask app is running.");
       } finally {

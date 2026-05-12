@@ -111,20 +111,39 @@ class ChatbotKnowledgeBase:
 
         return TopicMatch(best_topic, best_score, self.matching_mode)
 
+    
     def answer(self, message):
         if not self._normalize(message):
-            return "Please type a question so I can help."
+            return (
+                "Please type a question so I can help.",
+                "No Match",
+                0.0,
+            )
 
         match = self.find_topic(message)
-        if match.topic and match.score >= 1.0:
-            return self._format_topic_response(match.topic)
 
-        topic_names = ", ".join(topic["title"].lower() for topic in self.topics[:6])
-        return (
-            "I can help with workplace harassment questions in Pakistan, including complaint "
-            "steps, relevant law, evidence, penalties, and safety options. Try asking about "
-            f"{topic_names}.\n\n{self.disclaimer}"
+        if match.topic and match.score >= 1.0:
+            return (
+                self._format_topic_response(match.topic),
+                match.topic["title"],
+                round(float(match.score), 2),
+            )
+
+        topic_names = ", ".join(
+            topic["title"].lower() for topic in self.topics[:6]
         )
+
+        return (
+            (
+                "I can help with workplace harassment questions in Pakistan, "
+                "including complaint steps, relevant law, evidence, penalties, "
+                "and safety options. Try asking about "
+                f"{topic_names}.\n\n{self.disclaimer}"
+            ),
+            "Fallback Response",
+            0.0,
+        )
+
 
     def _format_topic_response(self, topic):
         steps = "\n".join(f"- {step}" for step in topic["steps"])
