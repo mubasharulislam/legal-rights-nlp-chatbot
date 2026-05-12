@@ -15,7 +15,9 @@ The chatbot provides general legal information only. It is not a substitute for 
 
 # System Architecture
 
-![Architecture](outputs/screenshots/tfidf_retrieval_pipeline_architecture.png)
+![Architecture]<p align="center">
+  <img src="outputs/screenshots/tfidf_retrieval_pipeline_architecture.png" width="700"/>
+</p>
 
 ---
 
