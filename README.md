@@ -69,15 +69,9 @@ The project includes a Jupyter notebook for retrieval experimentation and evalua
 - `/health` endpoint for service and matching-mode status
 - Unit tests for dataset loading, retrieval behavior, and API endpoints
 - Cosine similarity ranking
-- Domain-specific keyword scoring
-- Structured legal knowledge base in JSON format
 - Explainable retrieval metadata
 - Responsive frontend chat interface
 - Quick-prompt legal guidance system
-- Optional OpenAI context-grounded generation
-- Local retrieval fallback system
-- Unit and endpoint testing
-- Retrieval evaluation notebook
 
 ---
 
