@@ -114,11 +114,13 @@ Detailed methodology: [docs/methodology.md](docs/methodology.md)
 
 ```text
 Browser UI
-  -> Flask API
+  -> Flask API Backend
+  -> TF-IDF Retrieval Engine
   -> optional OpenAI context-grounded generation
-  -> local retrieval engine
+  -> Cosine Similarity Matching
   -> structured legal knowledge base
   -> formatted response with disclaimer
+  -> Fronted Display
 ```
 
 Project structure:
@@ -155,13 +157,16 @@ Additional documentation:
 - [Evaluation examples](reports/evaluation_examples.md)
 - [Retrieval evaluation examples](reports/retrieval_evaluation_examples.md)
 
-## Screenshots
+# Technologies Used
 
-Add screenshots here after running the app locally.
-
-```text
-docs/assets/chat-interface.png
-docs/assets/example-response.png
+- Python
+- Flask
+- HTML / CSS / JavaScript
+- Scikit-learn
+- TF-IDF Vectorization
+- Cosine Similarity
+- JSON Knowledge Base
+- Jupyter Notebook
 ```
 
 ## Setup
