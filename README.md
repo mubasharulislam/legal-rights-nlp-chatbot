@@ -41,18 +41,21 @@ Project structure:
 ```text
 chatbot_project/
   app.py                         Flask routes, API workflow, optional OpenAI layer
-  chatbot_engine.py              Knowledge-base loading, TF-IDF indexing, retrieval, formatting
-  data/
+  chatbot_engine.py             Knowledge-base loading, TF-IDF indexing, retrieval, formatting
+requirements.txt
+data/
     legal_knowledge.json         Structured topic corpus
-  templates/
+templates/
     index.html                   Browser chat interface
-  tests/
+tests/
     test_chatbot.py              Unit and endpoint tests
-  docs/
+notebooks/
+    retrieval_analysis.ipynb
+docs/
     methodology.md               NLP and retrieval methodology
     error_analysis.md            Retrieval failure modes and limitations
     future_work.md               Multilingual and low-resource NLP directions
-  reports/
+reports/ 
     evaluation_examples.md       Qualitative retrieval examples
 ```
 
