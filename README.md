@@ -13,6 +13,13 @@ The chatbot provides general legal information only. It is not a substitute for 
 
 ---
 
+# Research Motivation and Research Question
+
+Recent NLP systems increasingly rely on semantic embeddings and transformer-based architectures for information retrieval. However, before adopting advanced models, it is important to understand the capabilities and limitations of classical retrieval methods. This project therefore explores a retrieval-based legal chatbot built on TF–IDF vectorization and cosine similarity matching.
+The project is guided by the following research question:
+What are the strengths and limitations of TF–IDF vectorization and cosine similarity for information retrieval in a legal-domain chatbot?
+The objective is to investigate how effectively lexical representations retrieve relevant legal information, identify the linguistic situations in which they perform well, and examine where they struggle with ambiguity, paraphrasing, and semantic variation. By exploring these limitations through practical implementation, the project aims to develop a stronger understanding of information retrieval foundations before moving toward more advanced neural approaches.
+
 # System Architecture
 
 <p align="center">
@@ -211,8 +218,18 @@ Or with pytest:
 pytest
 ```
 
+# Findings and Limitations
+
+The retrieval experiments indicate that TF–IDF vectorization combined with cosine similarity can effectively identify relevant legal topics when user queries share meaningful lexical overlap with documents in the knowledge base. The approach is computationally efficient, transparent, and interpretable, allowing retrieval decisions to be inspected through similarity scores and ranking information.
+At the same time, several limitations became apparent during retrieval analysis. The system relies primarily on lexical matching and may struggle when users express the same legal concept through substantially different vocabulary or indirect descriptions. Ambiguous queries can also correspond to multiple legal topics, while the retrieval mechanism currently returns a single best match. In addition, contextual meaning and broader semantic relationships are only partially captured by sparse vector representations.
+These observations highlight both the usefulness and the limitations of classical retrieval techniques. While they provide an effective foundation for domain-specific information access, they also illustrate why recent NLP research increasingly incorporates semantic embeddings, contextual representations, and transformer-based reranking methods.
+
 ## Research Direction
 
 The current system is an English-language sparse retrieval prototype. Future work focuses on Roman Urdu NLP, multilingual retrieval, code-switching detection, semantic embeddings, transformer-based reranking, and low-resource legal information retrieval.
 
 Future work details: [docs/future_work.md](docs/future_work.md)
+
+# Conclusion
+
+This project investigated the strengths and limitations of TF-IDF vectorization and cosine similarity for information retrieval in a legal-domain chatbot. The results demonstrate that classical retrieval methods can provide transparent and efficient access to legal information within a curated knowledge base. At the same time, retrieval analysis revealed challenges related to semantic variation, indirect language, and query ambiguity. These findings provide practical insight into the foundations of information retrieval and motivate future exploration of embedding-based and transformer-based approaches for legal NLP applications.
