@@ -17,7 +17,9 @@ The chatbot provides general legal information only. It is not a substitute for 
 
 Recent NLP systems increasingly rely on semantic embeddings and transformer-based architectures for information retrieval. However, before adopting advanced models, it is important to understand the capabilities and limitations of classical retrieval methods. This project therefore explores a retrieval-based legal chatbot built on TF–IDF vectorization and cosine similarity matching.
 The project is guided by the following research question:
+
 What are the strengths and limitations of TF–IDF vectorization and cosine similarity for information retrieval in a legal-domain chatbot?
+
 The objective is to investigate how effectively lexical representations retrieve relevant legal information, identify the linguistic situations in which they perform well, and examine where they struggle with ambiguity, paraphrasing, and semantic variation. By exploring these limitations through practical implementation, the project aims to develop a stronger understanding of information retrieval foundations before moving toward more advanced neural approaches.
 
 # System Architecture
